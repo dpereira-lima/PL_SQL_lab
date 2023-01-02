@@ -1,0 +1,1 @@
+Procedure desenvolvida em PL/SQL que utiliza SQL dinâmico para montar estrutura de envio de mensagem.
