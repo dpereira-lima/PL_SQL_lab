@@ -1,0 +1,1 @@
+Trigger para bloquear a exclusão e atualização do registro e apresentação de mensagem ao usuário.
