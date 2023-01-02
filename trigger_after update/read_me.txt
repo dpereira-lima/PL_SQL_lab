@@ -1,0 +1,1 @@
+Trigger de disparo após alteração de registro em tabela, para envio de mensagem.
