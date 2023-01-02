@@ -1,0 +1,1 @@
+Function utilizada para verificar assiduidade do cliente com relação ao horário da sua consulta, procedimento ou  tratamento. Retornando S caso confirmado ou N caso não confirmado.
