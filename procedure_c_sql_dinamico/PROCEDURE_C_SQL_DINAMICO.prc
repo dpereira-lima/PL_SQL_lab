@@ -5,10 +5,9 @@ as
 
 /*************************************************************************
 -----------------------PROCEDURE_C_SQL_DINAMICO---------------------------
-Sobre: cada projeto tem seu cadastro para envio de mensagem. Este objeto tem
-por objetivo localizar o cadastro destinado ao envio de mensagem, do projeto 
-informado por parâmetro, e gravar tabela temporaria o meio de envio (e-mail
-ou telefone (sms/whatsapp).
+Sobre: Este objeto tem por objetivo localizar o cadastro destinado ao envio 
+de mensagem, do projeto informado por parâmetro e gravar na tabela temporaria 
+o meio de envio (e-mail ou mensagem SMS).
 Para o envio da mensagem também informada por parâmetro.
 ------------------------------------------------------
 *Parametros: 
