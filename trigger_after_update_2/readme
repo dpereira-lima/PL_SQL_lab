@@ -8,7 +8,7 @@ No caso da trigger deste diretório, esta será acionada após a aplicação de 
 
   No corpo da trigger verifico se o campo DT_OBITO foi preenchido;
   Depois realizo algumas validações, como se o cliente não possui ficha de atendimento aberta e se o usuário tem permissão de registrar a data de óbito;
-  Se uma desta duas validações forem falsas apresento uma mensagem para o usuário. E a aplicação do UPDATE será cancelada;
+  Se uma desta duas validações forem falsas apresento uma mensagem para o usuário. E a aplicação do UPDATE será desfeito;
   Mas se forem verdadeiras executo um INSERT outra tabela e faço a execução de uma PROCEDURE.
 
 
@@ -23,5 +23,5 @@ In the case of the trigger for this directory, it will be activated after applyi
 
  In the body of the trigger, I check whether the DT_OBITO field has been filled in;
  Then I carry out some validations, such as whether the client does not have an open service record and whether the user is allowed to record the date of death;
- If one of these two validations is false, I will display a message to the user. And the UPDATE application will be cancelled;
+ If one of these two validations is false, I will display a message to the user. And the UPDATE application will be undone;
  But if they are true, I execute an INSERT on another table and execute a PROCEDURE.
