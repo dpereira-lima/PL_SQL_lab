@@ -1,4 +1,4 @@
-Explicação em Português
+## Explicação em Português
 
 Neste repositório contém códigos de objetos (procedures, triggers, functions...) de banco de dados, em linguagem PL/SQL (linguagem procedural Oracle que estende a linguagem SQL).
 
@@ -9,7 +9,7 @@ Os códigos estão separados em diretórios e cada diretório contém um readme 
 
 
 
-Explanation in English
+## Explanation in English
 
 This repository contains codes for database objects (procedures, triggers, functions, etc.) in PL/SQL language (Oracle procedural language that extends SQL language).
 
