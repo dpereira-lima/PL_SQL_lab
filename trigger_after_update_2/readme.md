@@ -1,4 +1,4 @@
-Explicação em Português
+## Explicação em Português
 
 Este diretório contém o script (código) de uma trigger (gatilho), em linguagem PL/SQL (linguagem procedural Oracle que estende a linguagem SQL.
 
@@ -13,7 +13,7 @@ No caso da trigger deste diretório, esta será acionada após a aplicação de 
 
 
 
-Explanation in English
+## Explanation in English
 
 This directory contains the script (code) of a trigger, in PL/SQL language (Oracle procedural language that extends the SQL language.
 
