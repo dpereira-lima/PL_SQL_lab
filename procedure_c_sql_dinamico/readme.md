@@ -1,4 +1,4 @@
-Explicação em Português
+## Explicação em Português
 
 Este diretório contém o script (código) de uma procedure, em linguagem PL/SQL (linguagem procedural Oracle que estende a linguagem SQL).
 
@@ -8,7 +8,7 @@ O código está todo comentando e endentado.
 
 
 
-Explanation in English
+## Explanation in English
 
 This directory contains the script (code) of a procedure, in PL/SQL language (Oracle procedural language that extends the SQL language).
 
