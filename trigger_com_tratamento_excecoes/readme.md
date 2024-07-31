@@ -1,4 +1,4 @@
-Explicação em Português
+## Explicação em Português
 
 Este diretório contém o script (código) de uma trigger (gatilho), em linguagem PL/SQL (linguagem procedural Oracle que estende a linguagem SQL).
 
@@ -15,11 +15,9 @@ Neste código utilizo diversos recursos da linguagem:
   Exception;
   E a função REGEXP_REPLACE (também nativa do Oracle que permite substituir parte de uma string com base em uma expressão regular).
 
-Todo o código está comentando e endentado.
 
 
-
-Explanation in English
+## Explanation in English
 
 This directory contains the script (code) of a trigger, in PL/SQL language (Oracle procedural language that extends the SQL language).
 
@@ -36,4 +34,3 @@ In this code I use several language resources:
  Exception;
  And the REGEXP_REPLACE function (also native to Oracle, which allows you to replace part of a string based on a regular expression).
 
-All code is commented and indented.
