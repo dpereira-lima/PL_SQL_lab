@@ -6,8 +6,8 @@ w_ds_proc_princ varchar2(32767);
 w_ds_proc_adcional varchar2(32767);
 
 /*------IE_OPCAO_P-------
-P - método principal
-A - métodos adicionais
+P - mÃ©todo principal
+A - mÃ©todos adicionais
 T - todos
 -----------------------*/
 
@@ -20,7 +20,7 @@ begin
             select 
                 decode (substr (mi.ds_metodo, 1, 3),
                 'TC ', 'TOMOGRAFIA COMPUTADORIZADA ',
-                'RM ', 'RESSONÂNCIA MAGNÉTICA ',
+                'RM ', 'RESSONÃ‚NCIA MAGNÃ‰TICA ',
                 'RX ', 'RAIO-X ',
                 'USG', 'ULTRASSONOGRAFIA',
                 'MMG', 'MAMOGRAFIA',
@@ -44,7 +44,7 @@ begin
             select
                 decode (substr (mi.ds_proc_exame, 1, 3),
                 'TC ', 'TOMOGRAFIA COMPUTADORIZADA ',
-                'RM ', 'RESSONÂNCIA MAGNÉTICA ',
+                'RM ', 'RESSONÃ‚NCIA MAGNÃ‰TICA ',
                 'RX ', 'RAIO-X ',
                 'USG', 'ULTRASSONOGRAFIA',
                 'MMG', 'MAMOGRAFIA',
@@ -69,7 +69,7 @@ begin
     
     else
 
-        raise_application_error(-20001, 'Opção inválida!');
+        raise_application_error(-20001, 'OpÃ§Ã£o invÃ¡lida!');
 
     end if;
     
