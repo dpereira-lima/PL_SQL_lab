@@ -2,7 +2,7 @@ create or replace procedure prc_atualizacao_cadastro
 is
 
 w_ds_log varchar2(4000);
-w_nr_processamento number := icesp.icesp_prj044_tbl002_seq.nextval;
+w_nr_processamento number := nr_processamento_seq.nextval;
 
 procedure gravar_log (ds_body_email_p varchar2, cd_pessoa_p varchar2, nr_processamento_p number)
 
@@ -10,8 +10,8 @@ is
 
 begin
 
-    insert into tbl_log(nr_processamento, cd_pessoa, id_ident_atual, ds_observacao)
-    values(nr_processamento_p, cd_pessoa_p, 'N', ds_body_email_p);
+    insert into tbl_log(nr_processamento, cd_pessoa, id_ident_atual, ds_observacao, ie_atualizacao_sistema)
+    values(nr_processamento_p, cd_pessoa_p, 'N', ds_body_email_p, 'E');
 
     commit;
 
@@ -23,16 +23,14 @@ is
 
 cursor c_casos is
 select
-    pac.nr_cliente||pac.nr_cliente_dv cd_cliente,
+    nvl(pac.nr_cliente||pac.nr_cliente_dv,'0') cd_cliente,
     pac.cd_pessoa
 from pessoa pac
 where pac.nr_prontuario is not null
     and pac.dt_obito is null
-    --AGENDAMENTO FUTURO - VIDEO
+    --AGENDAMENTO FUTURO
     and exists (select 1
                 from agenda_cliente ac
-                    inner join ag_classif acf
-                        on ac.ie_classif_agenda = acf.cd_classificacao
                 where pac.cd_pessoa = ac.cd_pessoa
                     and ac.ie_status_agenda = 'N'
                     and ac.dt_agenda >= sysdate) 
@@ -47,6 +45,8 @@ begin
     loop
         fetch c_casos into w_c_casos;
         exit when c_casos%notfound;
+
+            if (w_c01.cd_cliente <> '0') then
         
             w_id_ident := get_identificacao(w_c_casos.cd_cliente, null, null, null);
             
@@ -85,27 +85,40 @@ begin
                 begin
                 
                     insert into tbl_log(nr_processamento, cd_pessoa, id_ident_atual, ds_observacao)
-                    values(nr_processamento_p, w_c_casos.cd_pessoa, 'N', 'IDENTIFICAÇÃO não encontrado no Ensemble.');
+                    values(nr_processamento_p, w_c_casos.cd_pessoa, 'N', 'IDENTIFICACAO nao encontrada na base.');
                     
                     commit;
                     
                 end;
 
             end if;
-        
+
+            else
+            
+                begin
+                
+                    insert into tbl_log(nr_processamento, cd_pessoa, id_ident_atual, ds_observacao)
+                    values(nr_processamento_p, w_c01.cd_pessoa, 'N', 'Paciente sem COD_IDENT no sistema');
+                    
+                    commit;
+                    
+                end;
+                
+            end if;
+
     end loop;
     close c_casos;
     
 end;
 
-/*--RELATÓRIO ATUALIZAÇÃO*/
+/*--RELATORIO ATUALIZACAO*/
 procedure relatorio_atualizacao(nr_processamento_p number)
 
 is
 
 cursor c_casos is
 select
-    reg.nr_sequencia, reg.dt_atualizacao, reg.nr_processamento, reg.cd_pessoa, reg.id_ident, id_ident_atual, reg.ds_observacao,
+    reg.nr_sequencia, reg.dt_atualizacao, reg.nr_processamento, reg.cd_pessoa, reg.id_ident, id_ident_atual, reg.ds_observacao, reg.ie_atualizacao_sistema,
     pf.nm_pessoa nm_cliente, pf.dt_nascimento, pf.nr_prontuario||pf.nr_pront_dv nr_cliente
 from tbl_log reg
     inner join pessoa pf
@@ -118,6 +131,7 @@ w_ds_body clob :=  null;
 w_dt_atualizacao tbl_log.dt_atualizacao%type;
 w_cliente_atua varchar2(32767) :=  null;
 w_cliente_nao_atua varchar2(32767) :=  null;
+w_ds_observacao icesp.icesp_prj044_tbl001.ds_observacao%type;
 
 begin
 
@@ -126,7 +140,7 @@ w_ds_body :=
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Execução Rotina Atualização IDENTIFICAÇÃO</title>
+    <title>ExecuÃ§Ã£o Rotina AtualizaÃ§Ã£o IDENTIFICACAO</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -147,7 +161,7 @@ w_ds_body :=
 <body>
     <div class="header">
         <hr>'||
-        nr_processamento_p||' - EXECUÇÃO ROTINA ATUALIZAÇÃO IDENTIFICAÇÃO<br>
+        nr_processamento_p||' - EXECUÃ‡ÃƒO ROTINA ATUALIZACAO IDENTIFICACAO<br>
         Data: '||to_char(trunc(sysdate), 'dd/mm/yyyy')||'<br>
         <hr>
     </div>
@@ -163,11 +177,24 @@ w_ds_body :=
             
                 if w_c_casos.id_ident_atual = 'S' then
                 
-                    w_cliente_atua := w_c_casos.nm_cliente||' - Dta. nasc.: '||to_char(w_c_casos.dt_nascimento, 'dd/mm/yyyy')||' - COD CLIENTE: '||w_c_casos.nr_cliente||'<br>';
+                    w_cliente_atua := w_c_casos.nm_cliente||' - Dta. nasc.: '||to_char(w_c_casos.dt_nascimento, 'dd/mm/yyyy')||' - COD CLIENTE: '||w_c_casos.nr_cliente||'<br>'
+                                    ||w_cliente_atua;
                     
                 else
+
+                    if w_c01.ie_atualizacao_sistema = 'E' then
+                    
+                        w_ds_observacao := 'Erro Oracle - TI observar logs.';
+                    
+                    else
+                    
+                        w_ds_observacao := w_c01.ds_observacao;
+                    
+                    end if;
                 
-                    w_cliente_nao_atua := w_c_casos.nm_cliente||' - Dta. nasc.: '||to_char(w_c_casos.dt_nascimento, 'dd/mm/yyyy')||' - COD CLIENTE: '||w_c_casos.nr_cliente||'<br>';
+                    w_cliente_nao_atua := w_c_casos.nm_cliente||' - Dta. nasc.: '||to_char(w_c_casos.dt_nascimento, 'dd/mm/yyyy')||' - COD CLIENTE: '||w_c_casos.nr_cliente||'<br>'
+                                            'Motivo: <i>'||w_ds_observacao||'</i><br>'||                
+                                            ||w_cliente_nao_atua;
                 
                 end if;
 
@@ -184,13 +211,13 @@ w_ds_body :=
     
     if nvl(w_cliente_nao_atua, '0') <> '0' then
     
-        w_ds_body := w_ds_body||'<div><p><b>Pacientes não atualizados:</b></p><p>'||w_cliente_nao_atua||'</p></div>';
+        w_ds_body := w_ds_body||'<div><p><b>Pacientes nÃ£o atualizados:</b></p><p>'||w_cliente_nao_atua||'</p></div>';
         
     end if;
     
     if (nvl(w_cliente_atua, '0') = '0' and nvl(w_cliente_nao_atua, '0') = '0') then
     
-        w_ds_body := w_ds_body||'<div><p><b>Sem atualizações</b></p></div>';
+        w_ds_body := w_ds_body||'<div><p><b>Sem atualizaÃ§Ãµes</b></p></div>';
         
     end if;
     
@@ -205,10 +232,10 @@ end;
 
 begin
 
-    /*--IDENTIFICAR CLIENTES SEM IDENTIFICAÇÃO E ATUALIZA O CADASTRO--*/
+    /*--IDENTIFICAR CLIENTES SEM IDENTIFICACAO E ATUALIZA O CADASTRO--*/
     identifica_atualiza_cadastro(w_nr_processamento);
 
-    /*--RELATÓRIO DA ATUALIZAÇÃO*/
+    /*--RELATÃ“RIO DA ATUALIZACAO*/
     relatorio_atualizacao(w_nr_processamento);
 
 end;
