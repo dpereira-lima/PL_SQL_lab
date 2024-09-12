@@ -6,5 +6,6 @@ nr_processamento number(10),
 cd_pessoa varchar2(255),
 id_ident number(10),
 id_ident_atual varchar2(1),
-ds_observacao clob
+ds_observacao clob,
+ie_atualizacao_sistema varchar2(1)
 );
