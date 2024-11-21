@@ -4,7 +4,7 @@ Este diretório contém o script (código) de uma procedure em linguagem PL/SQL 
 
 Nesta procedure faço uso do pacote Oracle JSON_VALUE para separar em colunas valores de algumas chaves de JSON.
 
-O JSON está armazenar em um campo de uma tabela e utilizo estes valores para montar um relatório.
+O JSON está armazenar em um campo de uma tabela e utilizo os valores para montar um relatório.
 
 
 ---
@@ -16,4 +16,4 @@ This directory contains the script (code) of a procedure in PL/SQL language (Ora
 
 In this procedure I use the Oracle JSON_VALUE package to separate values of some JSON keys into columns.
 
-The JSON is stored in a field of a table and I use these values to create a report.
+The JSON is stored in a field of a table and I use the values to create a report.
