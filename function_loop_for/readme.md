@@ -2,7 +2,7 @@
 
 Este diretório contém o script (código) de uma function em linguagem PL/SQL (linguagem procedural da Oracle que estende a linguagem SQL).
 
-Está é uma function de linha simples, porém que retorna dados de uma consulta de múltiplas linhas.
+Esta é uma function de linha simples, porém que retorna dados de uma consulta de múltiplas linhas.
 
 Para realizar ação faço uso laço de repetição "FOR", que armazena o resultado da consulta em uma única variável.
 
