@@ -4,9 +4,9 @@ Este diretório contém o script (código) de uma trigger (gatilho), em linguage
 
 O entendimento de trigger é execução de uma ação antes ou após a execução de comando DML (INSERT, UPDATE e DELETE).
 
-O código da trigger deste diretório efetua os dois últimos passos do processo de ETL (Extract - Transform - Load) dos dados. Realizando assim a Transformação (Transform) e Carregamento (Load) dos dados.
+Os códigos dos objetos (banco de dados) deste diretório fazem parte de um projeto de integração de dados entre sistemas.
 
-Registrando log de erro e registro de sucesso.
+E principalmente a trigger efetua os dois últimos passos de ETL (Extract - Transform - Load) dos dados. Realizando assim a Transformação e Carregamento dos dados. E também registrando log de erro ou sucesso.
 
 
 
@@ -17,8 +17,8 @@ Registrando log de erro e registro de sucesso.
 
 This directory contains the script (code) of a trigger, in PL/SQL language (Oracle procedural language that extends the SQL language).
 
-The trigger is understood as the execution of an action before or after the execution of the DML command (INSERT, UPDATE and DELETE).
+A trigger is understood as the execution of an action before or after the execution of a DML command (INSERT, UPDATE and DELETE).
 
-The trigger code in this directory performs the last two steps of the ETL (Extract - Transform - Load) process of the data. Thus performing the Transformation and Loading of the data.
+The codes of the objects (database) in this directory are part of a data integration project between systems.
 
-Recording error log and success record.
+And mainly the trigger performs the last two steps of ETL (Extract - Transform - Load) of the data. Thus performing the Transformation and Loading of the data. And also recording error or success logs.
