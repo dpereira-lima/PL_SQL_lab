@@ -1,4 +1,3 @@
-## Explicação em Português
 
 Este diretório contém o script (código) de uma função, em PL/SQL (linguagem procedural Oracle que estende a linguagem SQL).
 
@@ -9,8 +8,8 @@ Neste código faço uso de condicional (IF e ELSE) para validação de algumas c
 Todo o código está comentado e endentado.
 
 
+---------------------------------------------------------------------------------------------------------
 
-## Explanation in English
 
 This directory contains the script (code) of a function, in PL/SQL (Oracle procedural language that extends the SQL language).
 
