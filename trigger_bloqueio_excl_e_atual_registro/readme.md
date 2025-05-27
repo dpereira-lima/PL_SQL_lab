@@ -1,5 +1,3 @@
-## Explicação em Português
-
 Este diretório contém o script (código) de uma trigger (gatilho), em linguagem PL/SQL (linguagem procedural Oracle que estende a linguagem SQL).
 
 A trigger é um objeto de banco de dados Oracle que executa uma ação quando é aplicado um comando DML (INSERT, DELETE ou UPDATE) sobre um registro de uma tabela.
@@ -9,8 +7,8 @@ No caso da trigger deste diretório, esta será acionada antes de aplicar o coma
 Se for aplicado um destes comandos a operação será abortada e a procedure do Oracle RAISE_APPLICATION_ERROR apresentará uma mensagem para o usuário.
 
 
+---------------------------------------------------------------------------------------------------------
 
-## Explanation in English
 
 This directory contains the script (code) of a trigger, in PL/SQL language (Oracle procedural language that extends the SQL language).
 
