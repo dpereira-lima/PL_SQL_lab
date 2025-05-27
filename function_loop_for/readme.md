@@ -1,5 +1,3 @@
-## Explicação em Português
-
 Este diretório contém o script (código) de uma function em linguagem PL/SQL (linguagem procedural da Oracle que estende a linguagem SQL).
 
 Esta é uma function de linha simples, porém que retorna dados de uma consulta de múltiplas linhas.
@@ -9,8 +7,8 @@ Para realizar ação faço uso laço de repetição "FOR", que armazena o result
 Com isso o retorno da function é apenas uma linha.
 
 
+---------------------------------------------------------------------------------------------------------
 
-## Explanation in English
 
 This directory contains the script (code) of a function in PL/SQL language (Oracle's procedural language that extends the SQL language).
 
