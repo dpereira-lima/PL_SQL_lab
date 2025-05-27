@@ -1,5 +1,3 @@
-## Explicação em Português
-
 Este diretório contém o script (código) de uma trigger (gatilho), em linguagem PL/SQL (linguagem procedural Oracle que estende a linguagem SQL).
 
 O entendimento de trigger é execução de alguma ação na base de dados após ou antes a execução de comandos DML (INSERT, UPDATE e DELETE).
@@ -11,8 +9,8 @@ Neste código faço uso de cursor, selects, funções de grupo e de linha simple
 Todo o código está comentando e endentado.
 
 
+---------------------------------------------------------------------------------------------------------
 
-## Explanation in English
 
 This directory contains the script (code) of a trigger, in PL/SQL language (Oracle procedural language that extends the SQL language).
 
