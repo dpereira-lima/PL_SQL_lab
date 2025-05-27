@@ -1,5 +1,3 @@
-# Explicação em Português
-
 Este diretório contém objetos de banco de dados, desenvolvidos em SQL e PL/SQL (linguagem procedural do Oracle que estende a linguagem SQL).
 
 Os objetos são responsáveis pelo tratamento de dados da integração de sistemas (Agendamento e Sistema de Informação Hospitalar).
@@ -8,9 +6,9 @@ O funcionamento desta integração e relativamente simples. Uma API inseri nas t
 
 Os códigos estão todos comentados e ordenados.
 
----
 
-# Explanation in English
+---------------------------------------------------------------------------------------------------------
+
 
 This directory contains database objects, developed in SQL and PL/SQL (Oracle's procedural language that extends the SQL language).
 
