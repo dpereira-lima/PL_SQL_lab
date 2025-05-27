@@ -1,5 +1,3 @@
-## Explicação em Português
-
 Este diretório contém o script (código) de uma trigger (gatilho), em linguagem PL/SQL (linguagem procedural Oracle que estende a linguagem SQL).
 
 Trigger é um objeto de banco de dados Oracle, que efetua uma ação após aplicação de um comando DML (INSERT, UPDATE ou DELETE) sobre o registro de uma tabela.
@@ -16,8 +14,8 @@ Neste código utilizo diversos recursos da linguagem:
   - E a função REGEXP_REPLACE (também nativa do Oracle que permite substituir parte de uma string com base em uma expressão regular).
 
 
+---------------------------------------------------------------------------------------------------------
 
-## Explanation in English
 
 This directory contains the script (code) of a trigger, in PL/SQL language (Oracle procedural language that extends the SQL language).
 
