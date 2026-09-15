@@ -15,6 +15,4 @@ The integration history is stored in tables of an Oracle database. The procedure
 The report aims to facilitate the monitoring of the integration execution, the analysis of its performance, and the identification of possible failures or inconsistencies.
 
 
-![img relacionamento](https://drive.google.com/file/d/1kLDrRwPu66z4v2Ouhh_VuZdc8KjaG3gk/view?usp=sharing)
-
 ![img relacionamento](https://drive.google.com/uc?id=1kLDrRwPu66z4v2Ouhh_VuZdc8KjaG3gk)
